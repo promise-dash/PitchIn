@@ -1,4 +1,9 @@
-import { SignOutButton } from "@clerk/nextjs";
+import {
+  SignedIn,
+  SignedOut,
+  SignInButton,
+  UserButton
+} from "@clerk/nextjs";
 import Link from "next/link";
 import React from "react";
 import { AiFillPushpin } from "react-icons/ai";
@@ -10,15 +15,25 @@ const Navbar = () => {
       <nav className="flex justify-between items-center">
         <Link href="/">
           <p className="text-2xl text-black font-semibold flex items-center">
-            <AiFillPushpin className="text-[#fb601e]"/>
+            <AiFillPushpin className="text-[#fb601e]" />
             PitchIn
           </p>
         </Link>
 
         <div className="flex items-center gap-5 text-black">
-          <Link href="/startup/create">
-            <span className="max-sm:hidden">Create</span>
-          </Link>
+          <SignedIn>
+            <Link href="/startup/create">
+              <span className="max-sm:hidden">Create</span>
+            </Link>
+          </SignedIn>
+
+          <SignedIn>
+            <UserButton />
+          </SignedIn>
+
+          <SignedOut>
+            <SignInButton mode="modal"/>
+          </SignedOut>
         </div>
       </nav>
     </header>
