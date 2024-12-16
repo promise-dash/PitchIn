@@ -25,7 +25,7 @@ export default function RootLayout({
       <html lang="en">
       <body
         className={`${poppins.variable} antialiased vsc-initialized`}
-        data-new-gr-c-s-check-loaded="14.1211.0"
+        data-new-gr-c-s-check-loaded="14.1213.0"
         data-gr-ext-installed=""
         cz-shortcut-listen="true"
       >
