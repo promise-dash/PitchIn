@@ -2,28 +2,46 @@ import SearchForm from "@/components/SearchForm";
 import StartupCard from "@/components/StartupCard";
 
 export default async function Home({
-  searchParams
+  searchParams,
 }: {
   searchParams: Promise<{ query?: string }>;
 }) {
+  const query = (await searchParams).query;
 
-  const query  = (await searchParams).query;
-
-  const posts = [{
-    _id: "12345",
-    title: "Exploring TypeScript for Modern Development",
-    _createdAt: new Date(),
-    author: {
-      _id: "67890",
-      name: "John Doe",
-      image: "https://via.placeholder.com/150",
-      bio: "A passionate developer and writer who loves sharing knowledge about modern technologies.",
+  const posts = [
+    {
+      _id: "12345",
+      title: "Exploring TypeScript for Modern Development",
+      _createdAt: new Date(),
+      author: {
+        _id: "67890",
+        name: "John Doe",
+        image: "https://via.placeholder.com/150",
+        bio: "A passionate developer and writer who loves sharing knowledge about modern technologies.",
+      },
+      views: 1234,
+      description:
+        "This article dives into the key features and benefits of TypeScript for modern web development.",
+      category: "Technology",
+      image: "https://via.placeholder.com/600",
     },
-    views: 1234,
-    description: "This article dives into the key features and benefits of TypeScript for modern web development.",
-    category: "Technology",
-    image: "https://via.placeholder.com/600",
-  }];
+    {
+      _id: "01234",
+      title: "New Blog",
+      _createdAt: new Date(),
+      author: {
+        _id: "67890",
+        name: "Kevin Eleven",
+        image: "https://via.placeholder.com/150",
+        bio: "A passionate developer and writer who loves sharing knowledge about modern technologies.",
+      },
+      views: 1234,
+      description:
+        "This article dives into the key features and benefits of TypeScript for modern web development.",
+      category: "Technology",
+      image: "https://via.placeholder.com/600",
+    }
+  ];
 
   return (
     <>

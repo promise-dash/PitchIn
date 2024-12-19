@@ -1,14 +1,13 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
-import { Poppins } from 'next/font/google'
+import { Poppins } from "next/font/google";
+import { SessionProvider } from "next-auth/react";
 import "./globals.css";
-import { ClerkProvider } from "@clerk/nextjs";
 
 const poppins = Poppins({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
-  variable: '--font-poppins',
-})
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-poppins",
+});
 
 export const metadata: Metadata = {
   title: "PitchIn",
@@ -21,17 +20,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider>
-      <html lang="en">
+    <SessionProvider>
+       <html lang="en">
       <body
         className={`${poppins.variable} antialiased vsc-initialized`}
-        data-new-gr-c-s-check-loaded="14.1213.0"
+        data-new-gr-c-s-check-loaded="14.1214.0"
         data-gr-ext-installed=""
         cz-shortcut-listen="true"
       >
         {children}
       </body>
     </html>
-    </ClerkProvider>
+    </SessionProvider>
+
   );
 }
