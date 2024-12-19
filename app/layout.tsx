@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
-import { SessionProvider } from "next-auth/react";
 import "./globals.css";
 
 const poppins = Poppins({
@@ -20,8 +19,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <SessionProvider>
-       <html lang="en">
+    <html lang="en">
       <body
         className={`${poppins.variable} antialiased vsc-initialized`}
         data-new-gr-c-s-check-loaded="14.1214.0"
@@ -31,7 +29,5 @@ export default function RootLayout({
         {children}
       </body>
     </html>
-    </SessionProvider>
-
   );
 }
